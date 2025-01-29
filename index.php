@@ -1,8 +1,9 @@
 <?php
-$title = 'Learn PHP From Scratch';
-$heading = 'Welcome To The Course';
-$body= 'In this course, you will learn the fundamentals of the PHP language';
-
+$title = 'PHP Practice';
+$heading = 'Learn PHP from Scratch';
+$firstName = 'John';
+$lastName = 'Doe';
+$fullName = $firstName . ' ' . $lastName;
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +25,9 @@ $body= 'In this course, you will learn the fundamentals of the PHP language';
     <div class="container mx-auto p-4 mt-4">
         <div class="bg-white rounded-lg shadow-md p-6">
             <h2 class="text-2xl font-semibold mb-4"><?= $heading ?></h2>
-          <p> <?= $body ?> </p>
+          <p> <?= 'Hello my name is '  . $fullName .'!' ?> </p>
+          <?= "<p>Hello my name is $fullName!</p>" ?>
+          <?= 'My name is \'John\'' ?>
         </div>
     </div>
 </body>
