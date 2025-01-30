@@ -1,25 +1,33 @@
 <?php
 $output=null;
 
-$user = [
-  'name' => 'John Doe',
-  'email' => 'john@gmail.com',
-  'password' => '12345',
-  'hobbies' => ['Reading', 'Writing', 'Coding'],
+$fruit = [
+    ['apple' , 'red'],
+    ['banana', 'yellow'],
+    ['grape', 'purple']
 ];
 
-$output = $user['name'];
-$output = $user['email'];
+$output = $fruit[0][1];
+$fruit[] = ['kiwi', 'green'];
 
-$output = $user['hobbies'][0];
+$users = [
+    ['name' => 'John Doe', 'email' => 'john@gmail.com', 'password' => '123456'],
+    ['name' => 'Jane Doe', 'email' => 'jane@gmail.com', 'password' => '123456'],
+    ['name' => 'Jim Doe', 'email' => 'jim@gmail.com', 'password' => '123456']
+];
 
-$user['address'] = '123 Main St';
+$users[]= ['name' => 'Mike Doe', 'email' => 'Mike@gmail.com', 'password' => '123456'];
 
-unset($user['address']);
+array_push($users, ['name' => 'Marry Doe', 'email' => 'M@io.com', 'password' => '123456']);
 
-// echo $user;  Can't echo an array
-// var_dump($user);
- 
+array_pop($users); // remove last element
+array_shift($users); // remove first element
+
+unset($users[1]); // remove specific element
+
+
+$output = $users[1]['email'];
+$output = count($users);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,11 +48,11 @@ unset($user['address']);
   <div class="container mx-auto p-4 mt-4">
     <div class="bg-white rounded-lg shadow-md p-6 mt-6">
         <p class="text-xl font-semibold"><?= $output ?></p>
-      <p class="text-xl font-semibold">Associative Arrays</p>
-      <h2 class="text-lg font-semibold mt-4">User Array:</h2>
+      <p class="text-xl font-semibold">Multi-Dimensional Array</p>
+      <h2 class="text-lg font-semibold mt-4">Fruit Array:</h2>
       <p>
         <pre>
-            <?php print_r($user); ?>
+            <?= print_r($users) ?>
             </pre>
         </p>
      
