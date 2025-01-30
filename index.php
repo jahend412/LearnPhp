@@ -1,33 +1,74 @@
 <?php
 $output=null;
+// Get an array of numbers
 
-$fruit = [
-    ['apple' , 'red'],
-    ['banana', 'yellow'],
-    ['grape', 'purple']
+$numbers = [1, 2, 3, 4, 5];
+// Get the sum of all the numbers combine and put into a variable 
+
+$sum = array_sum($numbers);
+$sum = $numbers[0] + $numbers[1] + $numbers[2] + $numbers[3] + $numbers[4];
+$amount = count($numbers);
+
+echo '<h3>Sum of An Array</h3>';
+echo 'The sum of the ' . $amount . ' numbers is ' . $sum;
+
+echo '<h3> Colors Array</h3>';
+
+$colors = ['red', 'blue', 'green', 'yellow'];
+$colors = array_reverse($colors);
+
+// array_push($colors, 'purple');
+// $colors[]= 'orange';
+
+// Array Merge
+
+$colors =  array_merge($colors, ['purple', 'orange']);  // Add purple and orange with array_merge
+array_splice($colors, 1, 1, 'pink');  // Change out specific 
+array_pop($colors);  // Remove last
+print_r($colors);
+
+
+echo '<h3> Job Listings </h3>';
+
+$listings = [
+    [
+        'id' => 1,
+        'title' => 'Dev',
+        'company' => '123 co',
+        'con_email' => 'J@gmail.com',
+        'con_phone' => '123-123-1234',
+        'skills' => ['1', '2', '3'],
+    ],
+    [
+        'id' => 2,
+        'title' => 'Dev1',
+        'company' => '1233 co',
+        'con_email' => 'J2@gmail.com',
+        'con_phone' => '123-123-1234',
+        'skills' => ['1', '2', '3']
+    ],[
+        'id' => 3,
+        'title' => 'Dev',
+        'company' => '14123 co',
+        'con_email' => 'J3@gmail.com',
+        'con_phone' => '123-123-1234',
+        'skills' => ['1', '2', '3']
+    ],
 ];
 
-$output = $fruit[0][1];
-$fruit[] = ['kiwi', 'green'];
+array_push($listings, [
+    'id' => 4,
+    'title' => 'Dev',
+    'company' => '123 co',
+    'con_email' => 'J4@gmail.com',
+    'con_phone' => '123-123-1234',
+    'skills' => ['1', '2', '3'],
+]);
 
-$users = [
-    ['name' => 'John Doe', 'email' => 'john@gmail.com', 'password' => '123456'],
-    ['name' => 'Jane Doe', 'email' => 'jane@gmail.com', 'password' => '123456'],
-    ['name' => 'Jim Doe', 'email' => 'jim@gmail.com', 'password' => '123456']
-];
+// print_r($listings);
+echo $listings[1]['title'];
+echo $listings[2]['skills'][0]
 
-$users[]= ['name' => 'Mike Doe', 'email' => 'Mike@gmail.com', 'password' => '123456'];
-
-array_push($users, ['name' => 'Marry Doe', 'email' => 'M@io.com', 'password' => '123456']);
-
-array_pop($users); // remove last element
-array_shift($users); // remove first element
-
-unset($users[1]); // remove specific element
-
-
-$output = $users[1]['email'];
-$output = count($users);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,12 +89,11 @@ $output = count($users);
   <div class="container mx-auto p-4 mt-4">
     <div class="bg-white rounded-lg shadow-md p-6 mt-6">
         <p class="text-xl font-semibold"><?= $output ?></p>
-      <p class="text-xl font-semibold">Multi-Dimensional Array</p>
-      <h2 class="text-lg font-semibold mt-4">Fruit Array:</h2>
+      <p class="text-xl font-semibold">Challenge</p>
+      <h2 class="text-lg font-semibold mt-4"></h2>
       <p>
         <pre>
-            <?= print_r($users) ?>
-            </pre>
+          
         </p>
      
     </div>
